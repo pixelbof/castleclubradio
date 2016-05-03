@@ -7,7 +7,6 @@
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
         <!--Vender specific-->
         <script src="js/thirdParty/jquery.min.js"></script>
-        <script src="js/thirdParty/jquery.mobile-1.4.5.min.js"></script>
         <link rel="stylesheet" type="text/css" href="css/thirdParty/jquery.mobile-1.4.5.min.css">
         <!--Custom files-->
         <link rel="stylesheet" type="text/css" href="css/index.css">
@@ -17,25 +16,27 @@
         <div class="app">
             <!--Main App code here-->
             <div data-role="page" id="demo-page" data-url="demo-page">
-                <div data-role="header" data-theme="b">
-                    <h1>Swipe left or right</h1>
-                    <a href="#left-panel" class="menuBtn ui-btn ui-btn-right ui-btn-icon-right ui-icon-bars">Open right panel</a>
-                </div><!-- /header -->
+                <div data-role="header" data-theme="b">
+                    <h1>Castle Club Radio</h1>
+                    <a href="#left-panel" class="menuBtn ui-btn ui-btn-right ui-btn-icon-right ui-btn-inline ui-btn-icon-notext ui-icon-bars">Open right panel</a>
 
-                <div role="main" class="ui-content">
-                    <dl>
-                        <dt>Swipe <span>verb</span></dt>
-                        <dd><b>1.</b> to strike or move with a sweeping motion</dd>
-                    </dl>
-                </div><!-- /content -->
+                </div><!-- /header -->
 
-                <div data-role="panel" id="left-panel" data-theme="b">
-                    <p>Left reveal panel.</p>
-                    <a href="#" data-rel="close" class="ui-btn ui-corner-all ui-shadow ui-mini ui-btn-inline ui-icon-delete ui-btn-icon-left ui-btn-right">Close</a>
-                </div><!-- /panel -->
+                <div role="main" class="ui-content">
+                    <dl>
+                    <dt>Swipe <span>verb</span></dt>
+                    <dd><b>1.</b> to strike or move with a sweeping motion</dd>
+                    </dl>
+                </div><!-- /content -->
+
+                <div data-role="panel" id="left-panel" data-theme="b">
+                    <p>Left reveal panel.</p>
+                    <a href="#" data-rel="close" class="ui-btn ui-corner-all ui-shadow ui-mini ui-btn-inline ui-icon-delete ui-btn-icon-left ui-btn-right">Close</a>
+                </div><!-- /panel -->
             </div>
         </div>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
+        <script src="js/thirdParty/jquery.mobile-1.4.5.min.js"></script>
     </body>
 </html>
