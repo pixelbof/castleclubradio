@@ -39,6 +39,16 @@ var app = {
     receivedEvent: function(id) {
         //device ready
         app.notifications("Welcome to castle club radio", "Live from Ayia Napa!", true, true);
+        //drawerLayout swipe function
+        $( document ).on( "pagecreate", "#demo-page", function() {
+            $( document ).on( "swipeleft", "#demo-page", function( e ) {
+                if ( $( ".ui-page-active" ).jqmData( "panel" ) !== "open" ) {
+                    if ( e.type === "swiperight" ) {
+                        $( "#left-panel" ).panel( "open" );
+                    }
+                }
+            });
+        });
     },
     notifications: function(message, title, autoCancel, ongoing) {
         window.plugin.notification.local.add({
