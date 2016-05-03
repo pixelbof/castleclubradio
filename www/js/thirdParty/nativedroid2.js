@@ -647,7 +647,7 @@
                 },
                 advertising: {
                     active: false, // true | false
-                    path: null, // "/examples/fragments/adsense/",
+                    path: null, // "pages/fragments/adsense/",
                     extension: null // ".html"
                 }
             };
