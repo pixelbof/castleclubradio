@@ -51,5 +51,3 @@ var app = {
         });
     }
 };
-
-app.initialize();
