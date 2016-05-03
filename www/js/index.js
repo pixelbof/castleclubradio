@@ -37,14 +37,16 @@ var app = {
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
+        //device ready
+        window.plugin.notification.local.add({
+            id:         "CastleClubRadio",  // A unique id of the notifiction
+            message:    "Welcome to the radio app",  // The message that is displayed
+            title:      "Castle Club Radio",  // The title of the message
+            badge:      1,  // Displays number badge to notification
+            autoCancel: true, // Setting this flag and the notification is automatically canceled when the user clicks it
+            ongoing:    true, // Prevent clearing of notification (Android only)
+        });
 
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
-
-        console.log('Received Event: ' + id);
     }
 };
 

@@ -1,14 +1,15 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.castleclubradio" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Castle CLub Radio</name>
+    <name>Castle Club Radio</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        Castle club radio direct from Ayia Napa!!
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
+    <author email="admin@castleclub.com" href="http://castleclubradio.com">
+        Castle Club Ayia Napa
     </author>
     <content src="index.html" />
     <plugin name="cordova-plugin-whitelist" spec="1" />
+    <gap:plugin name="de.appplant.cordova.plugin.local-notification" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
