@@ -41,6 +41,7 @@
         <splash src="img/Android/res/drawable-mdpi/screen.png" platform="android" qualifier="mdpi" />
         <splash src="img/Android/res/drawable-hdpi/screen.png" platform="android" qualifier="hdpi" />
         <splash src="img/Android/res/drawable-xhdpi/screen.png" platform="android" qualifier="xhdpi" />
+        <splash src="img/Android/res/drawable-xxhdpi/screen.png" platform="android" qualifier="xxhdpi" />
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
