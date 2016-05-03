@@ -38,7 +38,7 @@ var app = {
     // Update DOM on a Received Event
     receivedEvent: function(id) {
         //device ready
-        app.notifications("Welcome to castle club radio", "Live from Ayia Napa!", true, true);
+        //app.notifications("Welcome to castle club radio", "Live from Ayia Napa!", true, true);
 
         $( document ).on( "pagecreate", "#demo-page", function() {
             $( document ).on( "swipeleft", "#demo-page", function( e ) {
@@ -46,11 +46,11 @@ var app = {
                 // a swipe to close the left panel would also open the right panel (and v.v.).
                 // We do this by checking the data that the framework stores on the page element (panel: open).
                 if ( $( ".ui-page-active" ).jqmData( "panel" ) !== "open" ) {
-                    if ( e.type === "swipeleft" ) {
-                        $( "#left-panel" ).panel( "close" );
-                    } else if ( e.type === "swiperight" ) {
+                    if ( e.type === "swiperight" ) {
                         $( "#left-panel" ).panel( "open" );
-                    }
+                    } else if (e.type === "swipeleft") {
+                        $( "#left-panel" ).panel( "close" );
+                    }
                 }
             });
         });
