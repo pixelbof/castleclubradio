@@ -38,7 +38,7 @@ var app = {
     // Update DOM on a Received Event
     receivedEvent: function(id) {
         //device ready
-},
+    },
     notifications: function(message, title, autoCancel, ongoing) {
         window.plugin.notification.local.add({
             id:         "CastleClubRadio",  // A unique id of the notifiction

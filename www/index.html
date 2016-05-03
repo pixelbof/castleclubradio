@@ -1,42 +1,49 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
     <head>
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
-        <meta name="format-detection" content="telephone=no">
-        <meta name="msapplication-tap-highlight" content="no">
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-        <!--Vender specific-->
-        <script src="js/thirdParty/jquery.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="css/thirdParty/jquery.mobile-1.4.5.min.css">
-        <!--Custom files-->
-        <link rel="stylesheet" type="text/css" href="css/index.css">
-        <title>Hello World</title>
+        <title>nativeDroid II - jQueryMobile Template</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+        <link rel="stylesheet" href="css/thirdParty/font-awesome.min.css" />
+        <link rel="stylesheet" href="css/thirdParty/jquery.mobile.min.css" />
+        <link rel="stylesheet" href="css/thirdParty/waves.min.css" />
+        <link rel="stylesheet" href="css/thirdParty/animate.css" />
+        <link rel="stylesheet" href="css/thirdParty/CastleClub.css" />
+
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
     </head>
     <body>
-        <div class="app">
-            <!--Main App code here-->
-            <div data-role="page" id="demo-page" data-url="demo-page">
-                <div data-role="header" data-theme="b">
-                    <h1>Castle Club Radio</h1>
-                    <a href="#left-panel" class="menuBtn ui-btn ui-btn-right ui-btn-icon-right ui-btn-inline ui-btn-icon-notext ui-icon-bars">Open right panel</a>
 
-                </div><!-- /header -->
+        <div data-role="page">
 
-                <div role="main" class="ui-content">
-                    <dl>
-                    <dt>Swipe <span>verb</span></dt>
-                    <dd><b>1.</b> to strike or move with a sweeping motion</dd>
-                    </dl>
-                </div><!-- /content -->
+            <nd2-include data-src="examples/fragments/panel.left.html"></nd2-include>
 
-                <div data-role="panel" id="left-panel" data-theme="b">
-                    <p>Left reveal panel.</p>
-                    <a href="#" data-rel="close" class="ui-btn ui-corner-all ui-shadow ui-mini ui-btn-inline ui-icon-delete ui-btn-icon-left ui-btn-right">Close</a>
-                </div><!-- /panel -->
+            <div data-role="panel" id="bottomsheet" data-animate="false" data-position='bottom' data-display="overlay">
+                <nd2-include data-src="examples/fragments/bottom.sheet.html"></nd2-include>
             </div>
+
+            <div data-role="header" data-position="fixed" class="wow fadeInDown" data-wow-delay="0.2s">
+                <a href="#bottomsheet" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay='1.2s'><i class="zmdi zmdi-more-vert"></i></a>
+                <a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
+                <h1 class="wow fadeIn" data-wow-delay='0.4s'>Page Title</h1>
+            </div>
+
+            <div role="main" class="ui-content" data-inset="false">
+                <p>(home)</p>
+            </div>
+
         </div>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
+
+        <script src="js/thirdParty/jquery.min.js"></script>
+        <script src="js/thirdParty/jquery-ui.min.js"></script>
         <script src="js/thirdParty/jquery.mobile-1.4.5.min.js"></script>
+        <script src="js/thirdParty/waves.min.js"></script>
+        <script src="js/thirdParty/wow.min.js"></script>
+        <script src="js/thirdParty/nativedroid2.js"></script>
+        <script src="js/thirdParty/nd2settings.js"></script>
+
     </body>
 </html>
