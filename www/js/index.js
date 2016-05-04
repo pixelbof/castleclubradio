@@ -41,9 +41,9 @@ var app = {
         //app.notifications("something", "some title", true, false);
 
         //click link and load html page in content
-        $("#leftpanel a").on("click", function() {
+        $("#leftpanel a").on("click", function(event) {
             event.preventDefault();
-            var html = $(this).attr("href");
+            var html = $(this).attr("data-page");
 
             $("#page-load").html().load(html);
         });
