@@ -61,6 +61,7 @@ $(document).ready(function() {
         var html = $(this).attr("data-page"),
             title = $(this).html();
 
+        $("#leftpanel").panel( "close" );
         $(".ui-content #page-load").html("").load(html);
         $(".header h1.main-title").html(title);
     });
