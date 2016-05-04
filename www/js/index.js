@@ -37,15 +37,14 @@ var app = {
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
-        //device ready
-        app.notifications("something", "some title", true, false);
+        //device ready for cordova API only
+        //app.notifications("something", "some title", true, false);
     },
     notifications: function(message, title, autoCancel, ongoing) {
         window.plugin.notification.local.add({
             id:         "CastleClubRadio",  // A unique id of the notifiction
             message:    message,  // The message that is displayed
             title:      title,  // The title of the message
-            icon: "../img/icons-png/audio-black.png",
             autoCancel: autoCancel, // Setting this flag and the notification is automatically canceled when the user clicks it
             ongoing:    ongoing, // Prevent clearing of notification (Android only)
         });
@@ -61,7 +60,7 @@ $(document).ready(function() {
         var html = $(this).attr("data-page"),
             title = $(this).html();
 
-        $("#leftpanel").panel( "close" );
+        $("#leftpanel").panel("close");
         $(".ui-content #page-load").html("").load(html);
         $(".header h1.main-title").html(title);
     });
