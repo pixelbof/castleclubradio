@@ -78,14 +78,9 @@ $(document).ready(function() {
         app.notifications("Currently Playing", "Castle Club Radio", true, true);
     };
 
-    function radioLoad() {
-        if(radio.readyState != 4) {
-            $(".radio-holder #status").html("Stream loading, please wait...");
-            setTimeout(radioLoad, 50)
-        } else {
-            $(".radio-holder #status").html("Stream loaded");
-        }
+    $(".radio-holder #status").html("Stream Loading, please wait...");
+
+    function streamLoaded() {
+        $(".radio-holder #status").html("Stream Loaded!");
     }
-    
-    radioLoad();
 });
