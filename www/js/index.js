@@ -19,7 +19,7 @@
 var app = {
     // Application Constructor
     initialize: function() {
-        this.bindEvents();
+        app.notifications("something", "title", true, true);
     },
     // Bind Event Listeners
     //
@@ -38,7 +38,7 @@ var app = {
     // Update DOM on a Received Event
     receivedEvent: function(id) {
         //device ready
-        app.notifications("something", "title", true, true);
+        
     },
     notifications: function(message, title, autoCancel, ongoing) {
         window.plugin.notification.local.add({
