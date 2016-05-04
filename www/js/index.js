@@ -78,15 +78,17 @@ $(document).ready(function() {
         app.notifications("Currently Playing", "Castle Club Radio", true, true);
     };
 
-    $(".radioCall").on("click", function() {
-        while (radio.readyState < 4) {
-            $(".radio-holder #status").show().html("<p>Loading audio stream, please wait...</p>");
+    radio.onloadstart = function() {
+        $(".radio-holder #status").show().html("Loading radio stream, please wait...");
+    };
 
-            if(radio.readyState == 4) {
-                $(".radio-holder #status").html("<p>Now playing...</p>").delay(800).hide();
-                break;
-            }
+    function radioLoad() {
+        if(radio.readyState != 4) {
+            setTimeout(radioLoad, 50)
+        } else {
+            $(".radio-holder #status").html("Stream loaded, now playing...").delay(800).hide();
         }
-    });
+    }
     
+    radioLoad();
 });
