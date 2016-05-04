@@ -48,6 +48,9 @@ var app = {
             autoCancel: autoCancel, // Setting this flag and the notification is automatically canceled when the user clicks it
             ongoing:    ongoing, // Prevent clearing of notification (Android only)
         });
+    },
+    notificationsDismiss: function(noteId) {
+
     }
 };
 
@@ -70,7 +73,14 @@ $(document).ready(function() {
     //radio controller
     var vid = document.getElementById("radio");
     vid.onplaying = function() {
-        app.notifications("Currently Playing", "Castle CLub Radio", true, true);
+        app.notifications("Currently Playing", "Castle Club Radio", true, true);
     };
-    
+
+    vid.preload = "auto";
+
+    if(vid.readyState != 4) {
+        $("#radioContainer #status").html("<p>Loading audio stream, please wait...</p>");
+    } else if(vid.readyState == 4) {
+        $("#radioContainer #status").html("<p>Now playing...</p>").delay(800).hide();
+    }
 });
