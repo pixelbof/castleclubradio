@@ -79,8 +79,8 @@ $(document).ready(function() {
     };
 
     $(".radio-holder #status").html("Stream Loading, please wait...");
+});
 
     function streamLoaded() {
         $(".radio-holder #status").html("Stream Loaded!");
     }
-});
