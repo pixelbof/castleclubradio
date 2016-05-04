@@ -81,6 +81,9 @@ $(document).ready(function() {
     $(".radio-holder #status").html("Stream loading");
 
     radio.onloadeddata = function() {
-        $(".radio-holder #status").html("Stream loaded");
+        setTimeout(function() {
+            $(".radio-holder #status").html("Stream loaded");
+        }, 15000);
+        
     }
 });
