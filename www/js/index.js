@@ -79,8 +79,8 @@ $(document).ready(function() {
     vid.preload = "auto";
 
     if(vid.readyState != 4) {
-        $("#radioContainer #status").html("<p>Loading audio stream, please wait...</p>");
+        $(".radio-holder #status").show().html("<p>Loading audio stream, please wait...</p>");
     } else if(vid.readyState == 4) {
-        $("#radioContainer #status").html("<p>Now playing...</p>").delay(800).hide();
+        $(".radio-holder #status").html("<p>Now playing...</p>").delay(800).hide();
     }
 });
