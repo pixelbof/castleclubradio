@@ -45,7 +45,7 @@ var app = {
             id:         "CastleClubRadio",  // A unique id of the notifiction
             message:    message,  // The message that is displayed
             title:      title,  // The title of the message
-            badge:      1,  // Displays number badge to notification
+            icon: "/img/icons-png/audio-black.png",
             autoCancel: autoCancel, // Setting this flag and the notification is automatically canceled when the user clicks it
             ongoing:    ongoing, // Prevent clearing of notification (Android only)
         });
