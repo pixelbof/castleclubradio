@@ -20,7 +20,7 @@
         <div data-role="page">
 
             <!-- panel left -->
-            <div data-role="panel" id="leftpanel" data-display="overlay" data-position-fixed="true" >
+                        <div data-role="panel" id="leftpanel" data-display="overlay" data-position-fixed="true" >
                     <a href="index.html" class="ui-btn" data-ajax='false' data-icon="false">
                         <i class="zmdi zmdi-home"></i> Home</a>
 
@@ -46,6 +46,18 @@
             </div>
             <!-- /panel left -->
 
+            <div data-role="header" data-position="fixed" class="wow fadeInDown" data-wow-delay="0.2s">
+                <a href="#bottomsheet" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay='1.2s'><i class="zmdi zmdi-audio"></i></a>
+
+                <a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
+                
+                <h1 class="wow fadeIn" data-wow-delay='0.4s'>Page Title</h1>
+            </div>
+
+            <div role="main" class="ui-content" data-inset="false">
+                <div class="fileInclude" id="page-load">(home)</div>
+            </div>
+
             <!--Bottom sheet-->
                         <div data-role="panel" id="bottomsheet" data-animate="false" data-position='bottom' data-display="overlay">
                 
@@ -66,18 +78,6 @@
                 
             </div>
             <!--Bottom sheet-->
-
-            <div data-role="header" data-position="fixed" class="wow fadeInDown" data-wow-delay="0.2s">
-                <a href="#bottomsheet" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay='1.2s'><i class="zmdi zmdi-audio"></i></a>
-
-                <a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
-                
-                <h1 class="wow fadeIn" data-wow-delay='0.4s'>Page Title</h1>
-            </div>
-
-            <div role="main" class="ui-content" data-inset="false">
-                <div class="fileInclude" id="page-load">(home)</div>
-            </div>
 
         </div>
         <script type="text/javascript" src="cordova.js"></script>
