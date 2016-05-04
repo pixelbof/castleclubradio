@@ -51,3 +51,5 @@ var app = {
         });
     }
 };
+
+app.initialize();

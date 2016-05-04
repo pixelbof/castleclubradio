@@ -8,7 +8,7 @@ $(function() {
     },
     advertising : {
       active : false, // true | false
-      path : "../../pages/fragments/adsense/", // Define where the Ad-Templates are: For example: "pages/fragments/adsense/"
+      path : false, // Define where the Ad-Templates are: For example: "pages/fragments/adsense/"
       extension : null // Define the Ad-Template content Extension (Most case: ".html" or ".php")
     }
   });
