@@ -59,7 +59,6 @@ $(document).ready(function() {
     $("#leftpanel a").on("click", function(event) {
         event.preventDefault();
         var html = $(this).attr("data-page");
-        alert(html)
-        $("#page-load").html().load(html);
+        $(".ui-content #page-load").html("").load(html);
     });
 });
