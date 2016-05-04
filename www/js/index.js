@@ -38,7 +38,17 @@ var app = {
     // Update DOM on a Received Event
     receivedEvent: function(id) {
         //device ready
-        app.notifications("something", "some title", true, false);
+        //app.notifications("something", "some title", true, false);
+
+        //click link and load html page in content
+        $("#leftpanel a").on("click", function() {
+            event.preventDefault();
+            var html = $(this).attr("href");
+
+            $("#page-load").html().load(html);
+        });
+
+        
     },
     notifications: function(message, title, autoCancel, ongoing) {
         window.plugin.notification.local.add({
