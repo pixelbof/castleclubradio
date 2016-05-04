@@ -39,16 +39,6 @@ var app = {
     receivedEvent: function(id) {
         //device ready
         //app.notifications("something", "some title", true, false);
-
-        //click link and load html page in content
-        $("#leftpanel a").on("click", function(event) {
-            event.preventDefault();
-            var html = $(this).attr("data-page");
-
-            $("#page-load").html().load(html);
-        });
-
-        
     },
     notifications: function(message, title, autoCancel, ongoing) {
         window.plugin.notification.local.add({
@@ -63,3 +53,13 @@ var app = {
 };
 
 app.initialize();
+
+$(document).ready(function() {
+    //click link and load html page in content
+    $("#leftpanel a").on("click", function(event) {
+        event.preventDefault();
+        var html = $(this).attr("data-page");
+        alert(html)
+        $("#page-load").html().load(html);
+    });
+});
