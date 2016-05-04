@@ -63,5 +63,14 @@ $(document).ready(function() {
         $("#leftpanel").panel("close");
         $(".ui-content #page-load").html("").load(html);
         $(".header h1.main-title").html(title);
+
+    
     });
+
+    //radio controller
+    var vid = document.getElementById("radio");
+    vid.onplaying = function() {
+        app.notifications("Currently Playing", "Castle CLub Radio", true, true);
+    };
+    
 });
