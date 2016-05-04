@@ -19,11 +19,53 @@
 
         <div data-role="page">
 
-            <nd2-include data-src="pages/fragments/panel.left.html"></nd2-include>
+            <!-- panel left -->
+                        <div data-role="panel" id="leftpanel" data-display="overlay" data-position-fixed="true" >
+                    <a href="index.html" class="ui-btn" data-ajax='false' data-icon="false">
+                        <i class="zmdi zmdi-home"></i> Home</a>
 
-            <div data-role="panel" id="bottomsheet" data-animate="false" data-position='bottom' data-display="overlay">
-                <nd2-include data-src="pages/fragments/bottom.sheet.html"></nd2-include>
+                    <hr class="inset" />
+
+                    <h3>Main Menu</h3>
+                    <a href="pages/pages/schedule.html" class="ui-btn" data-ajax='false' data-icon="false">
+                        <i class="zmdi zmdi-calendar"></i> Show Schedule</a>
+                    <a href="pages/pages/about-djs.html" class="ui-btn" data-ajax='false' data-icon="false">
+                        <i class="zmdi zmdi-star"></i> About the DJs</a>
+
+                    <hr class="inset" />
+
+                    <h3>Social</h3>
+                    <a href="pages/pages/facebook.html" class="ui-btn" data-ajax='false' data-icon="false">
+                        <i class="zmdi zmdi-facebook"></i> Facebook</a>
+                    <a href="pages/pages/twitter.html" class="ui-btn" data-ajax='false' data-icon="false">
+                        <i class="zmdi zmdi-twitter"></i> Twitter</a>
+                    <a href="pages/pages/youtube.html" class="ui-btn" data-ajax='false' data-icon="false">
+                        <i class="zmdi zmdi-youtube"></i> Youtube</a>
+                    <a href="pages/pages/interact.html" class="ui-btn" data-ajax='false' data-icon="false">
+                        <i class="zmdi zmdi-comment-text"></i> Interact</a>
             </div>
+            <!-- /panel left -->
+
+            <!--Bottom sheet-->
+                        <div data-role="panel" id="bottomsheet" data-animate="false" data-position='bottom' data-display="overlay">
+                
+                <div class='row around-xs'>
+                    <div class='col-xs-auto'>
+                        <a href='#' class='ui-bottom-sheet-link ui-btn ui-btn-inline waves-effect waves-button waves-effect waves-button' data-ajax='false'><i class='zmdi zmdi-assignment zmd-2x'></i><strong>Clipboard</strong></a>
+                    </div>
+                    <div class='col-xs-auto'>
+                        <a href='#' class='ui-bottom-sheet-link ui-btn ui-btn-inline waves-effect waves-button waves-effect waves-button' data-ajax='false'><i class='zmdi zmdi-fire zmd-2x'></i><strong>Hot Stuff</strong></a>
+                    </div>
+                    <div class='col-xs-auto'>
+                        <a href='#' class='ui-bottom-sheet-link ui-btn ui-btn-inline waves-effect waves-button waves-effect waves-button' data-ajax='false'><i class='zmdi zmdi-cloud-outline-alt zmd-2x'></i><strong>Cloud</strong></a>
+                    </div>
+                    <div class='col-xs-auto'>
+                        <a href='#' class='ui-bottom-sheet-link ui-btn ui-btn-inline waves-effect waves-button waves-effect waves-button' data-ajax='false'><i class='zmdi zmdi-format-color-fill zmd-2x'></i><strong>Fillcolor</strong></a>
+                    </div>
+                </div>
+                
+            </div>
+            <!--Bottom sheet-->
 
             <div data-role="header" data-position="fixed" class="wow fadeInDown" data-wow-delay="0.2s">
                 <a href="#bottomsheet" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay='1.2s'><i class="zmdi zmdi-audio"></i></a>
@@ -34,12 +76,11 @@
             </div>
 
             <div role="main" class="ui-content" data-inset="false">
-                 <nd2-ad data-banner="sample-banner.html"></nd2-ad>
-                <p>(home)</p>
+                <div class="fileInclude" id="page-load">(home)</div>
             </div>
 
         </div>
-        
+        <script src="cordova.js"></script>
         <script src="js/thirdParty/jquery.min.js"></script>
         <script src="js/thirdParty/jquery-ui.min.js"></script>
         <script src="js/thirdParty/jquery.mobile-1.4.5.min.js"></script>
