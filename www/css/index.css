@@ -1,3 +1,8 @@
 #bottomsheet .ui-panel-inner {
 	text-align: center;
 }
+
+.banner img {
+	width: 100%;
+	height: auto;
+}

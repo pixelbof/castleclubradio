@@ -72,21 +72,25 @@ $(document).ready(function() {
 
     //radio controller
     var radio = document.getElementById("radio");
+    var bufferStatus = false;
     radio.preload = "auto";
 
-    radio.onplaying = function() {
-        app.notifications("Currently Playing", "Castle Club Radio", true, true);
-    };
+    if(bufferStatus != false) {
+        radio.onplaying = function() {
+            app.notifications("Currently Playing", "Castle Club Radio", true, true);
+        };
+    }
 
     $("#radio").on("play", function() {
-        $(".radio-holder #status").html("Stream loading...");
+        $(".radio-holder #status").html("Stream loading...").delay(7000).html("Stream Buffering...");
 
-        radio.onloadeddata = function() {
-            setTimeout(function() {
-                $(".radio-holder #status").html("Stream loaded!").delay(800).hide();
-            }, 15000);
+        setTimeout(function() {
+            bufferStatus = true;
             
-        }
+            $(".radio-holder #status").html("Stream Buffered!").delay(800).hide();
+            app.notifications("Currently Playing", "Castle Club Radio", true, true);
+        }, 15000);
+            
     })
     
 });
