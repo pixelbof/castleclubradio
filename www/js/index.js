@@ -81,7 +81,11 @@ $(document).ready(function() {
         }
 
         $("#leftpanel").panel("close");
-        $(".ui-content #page-load").html("").load('http://castleclubcms.pixelbof.co.uk/api/cms2app/'+pageID);
+        $(".ui-content #page-load").html("Loading...").load('http://castleclubcms.pixelbof.co.uk/api/cms2app/'+pageID, function(data) {
+            $.each(data, function(i, item) {
+                $(".ui-content #page-load").html(data[i].pageHtml);
+            });
+        });
         $(".header h1.main-title").html(title);
     });
 
