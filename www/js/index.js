@@ -60,14 +60,29 @@ $(document).ready(function() {
     //click link and load html page in content
     $("#leftpanel a").on("click", function(event) {
         event.preventDefault();
-        var html = $(this).attr("data-page"),
-            title = $(this).html();
+        var page = $(this).attr("data-page"),
+            title = $(this).html(),
+            pageID;
+
+        //create switch statement
+        switch(page) {
+            case 'index':
+                pageID = 1
+                break;
+            case 'about-djs':
+                pageID = 2
+                break;
+            case 'schedule':
+                pageID = 3
+                break;
+            case 'interact':
+                pageID = 4
+                break;
+        }
 
         $("#leftpanel").panel("close");
-        $(".ui-content #page-load").html("").load(html);
+        $(".ui-content #page-load").html("").load('http://castleclubcms.pixelbof.co.uk/api/cms2app/'+pageID);
         $(".header h1.main-title").html(title);
-
-    
     });
 
     //radio controller
