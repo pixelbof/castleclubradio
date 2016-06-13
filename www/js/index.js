@@ -57,6 +57,13 @@ var app = {
 app.initialize();
 
 $(document).ready(function() {
+    //get initial page
+    $(".header h1.main-title").html($("a#initLoad").html());
+
+    $.get('http://castleclubcms.pixelbof.co.uk/api/cms2app/1', function(data) {
+        $(".ui-content #page-load").html("Loading...");
+        $(".ui-content #page-load").html(data.pageHtml)
+    });
     //click link and load html page in content
     $("#leftpanel a").on("click", function(event) {
         event.preventDefault();
@@ -78,18 +85,26 @@ $(document).ready(function() {
             case 'interact':
                 pageID = 4
                 break;
+            case 'facebook':
+                pageID = 5
+                break;
+            case 'twitter':
+                pageID = 6
+                break;
+            case 'youtube':
+                pageID = 7
+                break;
         }
 
         $("#leftpanel").panel("close");
-
-        var apiCall = 'http://castleclubcms.pixelbof.co.uk/api/cms2app/'+pageID;
-          $.getJSON( apiCall )
-            .done(function( data ) {
-              $.each( data, function( i, item ) {
-                $( ".ui-content #page-load" ).html( item.pageHtml );
-              });
+        if(pageID != null || pageID != '' || pageID != undefined) {
+            $.get('http://castleclubcms.pixelbof.co.uk/api/cms2app/'+pageID, function(data) {
+                $(".ui-content #page-load").html("Loading...");
+                $(".ui-content #page-load").html(data.pageHtml)
             });
+        } else {
 
+        }
 
         $(".header h1.main-title").html(title);
     });
