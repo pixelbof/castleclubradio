@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
     <widget xmlns   = "http://www.w3.org/ns/widgets"
     xmlns:gap   = "http://phonegap.com/ns/1.0"
-    id          = "com.phonegap.example"
-    version     = "0.0.1" >
+    id          = "com.phonegap.castleclubradio"
+    version     = "1.0.0" >
     <name>Castle Club Radio</name>
     <description>
         Castle club radio direct from Ayia Napa!!
     </description>
     <author email="admin@castleclub.com" href="http://castleclubradio.com">
-        Castle Club Ayia Napa
+        Castle Club Radio Ayia Napa
     </author>
     <content src="index.html" />
     <preference name="android-build-tool" value="gradle" />
