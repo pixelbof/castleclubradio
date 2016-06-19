@@ -42,7 +42,7 @@
         <icon src="img/Android/res/drawable-xhdpi/icon.png" platform="android" qualifier="xhdpi" />
         <icon src="img/Android/res/drawable-xxhdpi/icon.png" platform="android" qualifier="xxhdpi" />
 
-        <gap:splash src="img/Android/res/drawable-mdpi/screen.png" />
+        <gap:splash src="splash.png" />
         <gap:splash src="img/Android/res/drawable-ldpi/screen.png" gap:platform="android" gap:qualifier="ldpi" />
         <gap:splash src="img/Android/res/drawable-mdpi/screen.png" gap:platform="android" gap:qualifier="mdpi" />
         <gap:splash src="img/Android/res/drawable-hdpi/screen.png" gap:platform="android" gap:qualifier="hdpi" />
