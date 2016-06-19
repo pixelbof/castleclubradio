@@ -98,8 +98,8 @@ $(document).ready(function() {
 
         $("#leftpanel").panel("close");
         if(pageID != null || pageID != '' || pageID != undefined) {
+            $(".ui-content #page-load").html("<div style='width:100%;text-align:center;'><img src='img/ajax-loader.gif' /></div>");
             $.get('http://castleclubcms.pixelbof.co.uk/api/cms2app/'+pageID, function(data) {
-                $(".ui-content #page-load").html("Loading...");
                 $(".ui-content #page-load").html(data.pageHtml)
             });
         } else {
