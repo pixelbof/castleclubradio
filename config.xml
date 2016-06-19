@@ -11,6 +11,9 @@
         Castle Club Radio Ayia Napa
     </author>
     <preference name="android-build-tool" value="gradle" />
+    <preference name="show-splash-screen-spinner" value="true" />
+    <preference name="auto-hide-splash-screen" value="true" />
+
     <gap:plugin name="cordova-plugin-whitelist" source="npm" />
     <gap:plugin name="cordova-plugin-file" spec="4.1.1" source="npm" />
     <gap:plugin name="cordova-plugin-file-transfer" spec="1.5.0" source="npm" />
@@ -21,25 +24,29 @@
     <gap:plugin name="cordova-plugin-geolocation" spec="2.1.0" source="npm" />
     <gap:plugin name="cordova-plugin-splashscreen" spec="3.2.1" source="npm" />
     <gap:plugin name="de.appplant.cordova.plugin.local-notification" source="npm" />
+
     <access origin="*" />
+    
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
+    
     <platform name="android">
         <allow-intent href="market:*" />
-        <icon src="www/img/Android/res/drawable-ldpi/icon.png" platform="android" qualifier="ldpi" />
-        <icon src="www/img/Android/res/drawable-mdpi/icon.png" platform="android" qualifier="mdpi" />
-        <icon src="www/img/Android/res/drawable-hdpi/icon.png" platform="android" qualifier="hdpi" />
-        <icon src="www/img/Android/res/drawable-xhdpi/icon.png" platform="android" qualifier="xhdpi" />
-        <icon src="www/img/Android/res/drawable-xxhdpi/icon.png" platform="android" qualifier="xxhdpi" />
+        <icon src="img/Android/res/drawable-ldpi/icon.png" platform="android" qualifier="ldpi" />
+        <icon src="img/Android/res/drawable-mdpi/icon.png" platform="android" qualifier="mdpi" />
+        <icon src="img/Android/res/drawable-hdpi/icon.png" platform="android" qualifier="hdpi" />
+        <icon src="img/Android/res/drawable-xhdpi/icon.png" platform="android" qualifier="xhdpi" />
+        <icon src="img/Android/res/drawable-xxhdpi/icon.png" platform="android" qualifier="xxhdpi" />
 
-        <splash src="www/img/Android/res/drawable-ldpi/screen.png" platform="android" qualifier="ldpi" />
-        <splash src="www/img/Android/res/drawable-mdpi/screen.png" platform="android" qualifier="mdpi" />
-        <splash src="www/img/Android/res/drawable-hdpi/screen.png" platform="android" qualifier="hdpi" />
-        <splash src="www/img/Android/res/drawable-xhdpi/screen.png" platform="android" qualifier="xhdpi" />
-        <splash src="www/img/Android/res/drawable-xxhdpi/screen.png" platform="android" qualifier="xxhdpi" />
+        <gap:splash src="img/Android/res/drawable-mdpi/screen.png" />
+        <gap:splash src="img/Android/res/drawable-ldpi/screen.png" gap:platform="android" gap:qualifier="ldpi" />
+        <gap:splash src="img/Android/res/drawable-mdpi/screen.png" gap:platform="android" gap:qualifier="mdpi" />
+        <gap:splash src="img/Android/res/drawable-hdpi/screen.png" gap:platform="android" gap:qualifier="hdpi" />
+        <gap:splash src="img/Android/res/drawable-xhdpi/screen.png" gap:platform="android" gap:qualifier="xhdpi" />
+        <gap:splash src="img/Android/res/drawable-xxhdpi/screen.png" gap:platform="android" gap:qualifier="xxhdpi" />
     </platform>
 </widget>
