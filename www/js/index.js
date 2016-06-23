@@ -1,21 +1,3 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
 var app = {
     // Application Constructor
     initialize: function() {
@@ -57,7 +39,7 @@ var app = {
 app.initialize();
 
 $(document).ready(function() {
-    //get initial page
+    //get initial page header
     $(".header h1.main-title").html($("a#initLoad").html());
 
     $.get('http://castleclubcms.pixelbof.co.uk/api/cms2app/1', function(data) {
@@ -71,7 +53,7 @@ $(document).ready(function() {
             title = $(this).html(),
             pageID;
 
-        //create switch statement
+        //create switch statement to choose API page
         switch(page) {
             case 'index':
                 pageID = 1
@@ -109,27 +91,69 @@ $(document).ready(function() {
         $(".header h1.main-title").html(title);
     });
 
+    //add background-image after page has loaded
+    var img = 'img/Android/res/drawable-xxxhdpi/screen.png';
+
+    $( ".ui-page" ).delay(4500).animate({
+          backgroundColor: "rgba(102,102,102,0.9)",
+        }, 800 );
+
+    $('body')
+        .delay(4500)
+        .queue( function(next){ 
+        $(this).css({
+            backgroundImage: "url("+img+")", 
+            backgroundRepeat : "no-repeat", 
+            backgroundPosition: "center center", 
+            backgroundSize: "cover"});
+        next(); 
+    });
+
+
     //radio controller
     var radio = document.getElementById("radio");
-    var bufferStatus = false;
+    var audioCurrentTime;
     radio.preload = "auto";
 
-    if(bufferStatus != false) {
-        radio.onplaying = function() {
-            app.notifications("Currently Playing", "Castle Club Radio", true, true);
-        };
+    $(radio).trigger('play');
+    $(".radio-holder #status").html("Stream Buffering...");
+    radio.addEventListener("playing", onPlaying);
+
+    function onPlaying() {
+        //app.notifications("Currently Playing", "Castle Club Radio", true, true);
+        $(".radio-holder #status").delay(15000).hide();
+
+        var radioTimer = setInterval(radioTime, 1000);
     }
 
-    $("#radio").on("play", function() {
-        $(".radio-holder #status").html("Stream loading...").delay(7000).html("Stream Buffering...");
+    function radioTime() {
+        audioCurrentTime = $(radio).get(0).currentTime;
 
-        setTimeout(function() {
-            bufferStatus = true;
-            
-            $(".radio-holder #status").html("Stream Buffered!").delay(800).hide();
-            app.notifications("Currently Playing", "Castle Club Radio", true, true);
-        }, 15000);
-            
-    })
+        var minutes = "0" + Math.floor(audioCurrentTime / 60);
+        var seconds = "0" +  Math.floor(audioCurrentTime - minutes * 60);
+
+        var dur =minutes.substr(-2) + ":" + seconds.substr(-2);
+
+        $("#radioPlayer .timer").html(dur);
+    }
+
+    $("#radioPlayer a").on("click", function() {
+        if($(this).attr("id") == "play") {
+            $(this).prop("id", "pause").find("i").removeClass("zmdi-play").addClass("zmdi-pause");
+            $('#radioPlayer .timer').css("background-image", "url(img/playing.gif)");
+            $(radio).trigger('play');
+            $(".radio-holder #status").html("Stream Buffering...");
+        } else if($(this).attr("id") == "pause") {
+            $(this).prop("id", "play").find("i").removeClass("zmdi-pause").addClass("zmdi-play");
+            $('#radioPlayer .timer').css("background-image", "none");
+            $(radio).trigger('pause');
+        } else if($(this).attr("id") == "mute") {
+            $(this).prop("id", "muted").find("i").removeClass("zmdi-volume-off").addClass("zmdi-volume-up");
+            $(radio).prop("muted",!$(radio).prop("muted"));
+        } else if($(this).attr("id") == "muted") {
+            $(this).prop("id", "mute").find("i").removeClass("zmdi-volume-up").addClass("zmdi-volume-off");
+            $(radio).prop("muted",!$(radio).prop("muted"));
+        }
+    });
     
 });

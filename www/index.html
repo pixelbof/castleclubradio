@@ -18,7 +18,7 @@
     </head>
     <body>
 
-        <div data-role="page">
+        <div data-role="page" data-animate="false">
 
             <!-- panel left -->
             <div data-role="panel" id="leftpanel" data-display="overlay" data-position-fixed="true" >
@@ -61,9 +61,18 @@
 
             <!--Bottom sheet-->
             <div data-role="panel" id="bottomsheet" class="radio-holder" data-animate="false" data-position='bottom' data-display="overlay">
+
+                    <div id="radioPlayer">
+                        <a href="#" id="pause"><i class="zmdi zmdi-pause"></i></a>
+                        <div class="timer">00:00</div>
+                        <a href="#" id="mute"><i class="zmdi zmdi-volume-off"></i></a>
+                    </div>
+
                     <audio id="radio" preload="auto" controls autoplay>
                         <source src="http://46.105.140.169:8004/stream" type="audio/mpeg">
                     </audio>
+
+                    <div class="clear"></div>
 
                     <div id="status">
                     </div>
