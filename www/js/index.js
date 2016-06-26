@@ -9,6 +9,7 @@ var app = {
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
+        document.getElementById("radioPlayer").addEventListener("playing", this.onPlaying);
     },
     // deviceready Event Handler
     //
@@ -21,6 +22,22 @@ var app = {
     receivedEvent: function(id) {
         //device ready for cordova API only
         //app.notifications("something", "some title", true, false);
+    },
+    onPlaying: function() {
+        //app.notifications("Currently Playing", "Castle Club Radio", true, true);
+        $(".radio-holder #status").delay(15000).hide();
+
+        var radioTimer = setInterval(app.radioTime(document.getElementById("radio")), 1000);
+    },
+    radioTime: function(radio) {
+        audioCurrentTime = $(radio).get(0).currentTime;
+
+        var minutes = "0" + Math.floor(audioCurrentTime / 60);
+        var seconds = "0" +  Math.floor(audioCurrentTime - minutes * 60);
+
+        var dur =minutes.substr(-2) + ":" + seconds.substr(-2);
+
+        $("#radioPlayer .timer").html(dur);
     },
     notifications: function(message, title, autoCancel, ongoing) {
         window.plugin.notification.local.add({
@@ -37,6 +54,8 @@ var app = {
 };
 
 app.initialize();
+
+//functions after app has loaded, jquery click specific
 
 $(document).ready(function() {
     //get initial page header
@@ -117,25 +136,7 @@ $(document).ready(function() {
 
     $(radio).trigger('play');
     $(".radio-holder #status").html("Stream Buffering...");
-    radio.addEventListener("playing", onPlaying);
-
-    function onPlaying() {
-        //app.notifications("Currently Playing", "Castle Club Radio", true, true);
-        $(".radio-holder #status").delay(15000).hide();
-
-        var radioTimer = setInterval(radioTime, 1000);
-    }
-
-    function radioTime() {
-        audioCurrentTime = $(radio).get(0).currentTime;
-
-        var minutes = "0" + Math.floor(audioCurrentTime / 60);
-        var seconds = "0" +  Math.floor(audioCurrentTime - minutes * 60);
-
-        var dur =minutes.substr(-2) + ":" + seconds.substr(-2);
-
-        $("#radioPlayer .timer").html(dur);
-    }
+    radio.addEventListener("playing", app.onPlaying);
 
     $("#radioPlayer a").on("click", function() {
         if($(this).attr("id") == "play") {
