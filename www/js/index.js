@@ -9,7 +9,7 @@ var app = {
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
-        document.getElementById("radioPlayer").addEventListener("playing", this.onPlaying);
+        document.getElementById("radioPlayer").addEventListener("playing", this.onPlaying, false);
     },
     // deviceready Event Handler
     //
