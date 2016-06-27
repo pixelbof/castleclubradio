@@ -9,7 +9,6 @@ var app = {
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
-        document.getElementById("radioPlayer").addEventListener("playing", this.onPlaying, false);
     },
     // deviceready Event Handler
     //
@@ -21,7 +20,7 @@ var app = {
     // Update DOM on a Received Event
     receivedEvent: function(id) {
         //device ready for cordova API only
-        //app.notifications("something", "some title", true, false);
+        document.getElementById("radioPlayer").addEventListener("playing", app.onPlaying, false);
     },
     onPlaying: function() {
         app.notifications("Currently Playing", "Castle Club Radio", true, true);
@@ -135,7 +134,6 @@ $(document).ready(function() {
 
     //radio controller
     var radio = document.getElementById("radio");
-    var audioCurrentTime;
     radio.preload = "auto";
 
     $(radio).trigger('play');
