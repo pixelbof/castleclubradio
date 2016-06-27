@@ -21,13 +21,16 @@ var app = {
     // Update DOM on a Received Event
     receivedEvent: function(id) {
         //device ready for cordova API only
+        navigator.notification.alert("device is ready");
     },
     onPlaying: function() {
+        navigator.notification.alert("currently playing music");
        //app.notifications("Currently Playing", "Castle Club Radio", true, true);
 
         var radioTimer = setInterval(app.radioTime, 1000);
     },
     radioTime: function() {
+        navigator.notification.alert("starting timer");
         var radio = document.getElementById("radio"),
         audioCurrentTime = radio.currentTime;
 
