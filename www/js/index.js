@@ -9,7 +9,6 @@ var app = {
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
-        document.addEventListener('playing', this.onPlaying, true);
     },
     // deviceready Event Handler
     //
@@ -61,6 +60,8 @@ app.initialize();
 //functions after app has loaded, jquery click specific
 
 $(document).ready(function() {
+    document.addEventListener('playing', app.onPlaying(), false);
+    
     //get initial page header
     $(".header h1.main-title").html($("a#initLoad").html());
 
