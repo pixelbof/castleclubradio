@@ -24,18 +24,22 @@ var app = {
         //app.notifications("something", "some title", true, false);
     },
     onPlaying: function() {
-        //app.notifications("Currently Playing", "Castle Club Radio", true, true);
-        $(".radio-holder #status").delay(15000).hide();
+        app.notifications("Currently Playing", "Castle Club Radio", true, true);
 
-        var radioTimer = setInterval(app.radioTime(document.getElementById("radio")), 1000);
+        setTimeout(function() {
+            document.getElementById("status").style.display = "none";
+        }, 15000);
+
+        var radioTimer = setInterval(app.radioTime, 1000);
     },
-    radioTime: function(radio) {
+    radioTime: function() {
+        var radio = document.getElementById("radio"),
         audioCurrentTime = $(radio).get(0).currentTime;
 
         var minutes = "0" + Math.floor(audioCurrentTime / 60);
         var seconds = "0" +  Math.floor(audioCurrentTime - minutes * 60);
 
-        var dur =minutes.substr(-2) + ":" + seconds.substr(-2);
+        var dur = minutes.substr(-2) + ":" + seconds.substr(-2);
 
         $("#radioPlayer .timer").html(dur);
     },
@@ -136,7 +140,6 @@ $(document).ready(function() {
 
     $(radio).trigger('play');
     $(".radio-holder #status").html("Stream Buffering...");
-    radio.addEventListener("playing", app.onPlaying);
 
     $("#radioPlayer a").on("click", function() {
         if($(this).attr("id") == "play") {
@@ -149,10 +152,10 @@ $(document).ready(function() {
             $('#radioPlayer .timer').css("background-image", "none");
             $(radio).trigger('pause');
         } else if($(this).attr("id") == "mute") {
-            $(this).prop("id", "muted").find("i").removeClass("zmdi-volume-off").addClass("zmdi-volume-up");
+            $(this).prop("id", "muted").find("i").removeClass("zmdi-volume-up").addClass("zmdi-volume-off");
             $(radio).prop("muted",!$(radio).prop("muted"));
         } else if($(this).attr("id") == "muted") {
-            $(this).prop("id", "mute").find("i").removeClass("zmdi-volume-up").addClass("zmdi-volume-off");
+            $(this).prop("id", "mute").find("i").removeClass("zmdi-volume-off").addClass("zmdi-volume-up");
             $(radio).prop("muted",!$(radio).prop("muted"));
         }
     });
