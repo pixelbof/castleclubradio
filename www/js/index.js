@@ -20,27 +20,27 @@ var app = {
     // Update DOM on a Received Event
     receivedEvent: function(id) {
         //device ready for cordova API only
-        document.getElementById("radio").addEventListener("playing", app.onPlaying, false);
     },
     onPlaying: function() {
-        app.notifications("Currently Playing", "Castle Club Radio", true, true);
+        //app.notifications("Currently Playing", "Castle Club Radio", true, true);
 
         setTimeout(function() {
-            document.getElementById("status").style.display = "none";
+            $(".radio-holder #status").hide();
         }, 15000);
 
         var radioTimer = setInterval(app.radioTime, 1000);
     },
     radioTime: function() {
         var radio = document.getElementById("radio"),
-        audioCurrentTime = radio.get(0).currentTime;
+        audioCurrentTime = radio.currentTime;
 
         var minutes = "0" + Math.floor(audioCurrentTime / 60);
         var seconds = "0" +  Math.floor(audioCurrentTime - minutes * 60);
 
         var dur = minutes.substr(-2) + ":" + seconds.substr(-2);
 
-        document.getElementById("#radioPlayer").getElementsByClassName(".timer")[0].innerHtml(dur);
+        //document.getElementById("radioPlayer").getElementsByClassName(".timer")[0].innerHtml(dur);
+        $("#radioPlayer .timer").html(dur);
     },
     notifications: function(message, title, autoCancel, ongoing) {
         window.plugin.notification.local.add({
@@ -138,6 +138,10 @@ $(document).ready(function() {
 
     $(radio).trigger('play');
     $(".radio-holder #status").html("Stream Buffering...");
+
+    $(radio).on("play", function() {
+        app.onPlaying()
+    });
 
     $("#radioPlayer a").on("click", function() {
         if($(this).attr("id") == "play") {

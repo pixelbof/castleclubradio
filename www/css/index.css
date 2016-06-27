@@ -54,14 +54,14 @@
 
 #radioPlayer a {
 	float: left;
-	margin-top: 15%;
-	width: 26px;
-	height: 26px;
+	margin-top: 12%;
+	width: 33px;
+	height: 33px;
 	border-radius: 50% !important;
 }
 
 #radioPlayer a i {
-	margin-top: 4px;
+	font-size: 33px;
 }
 
 .clear {
