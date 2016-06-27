@@ -23,7 +23,7 @@ var app = {
         //device ready for cordova API only
     },
     onPlaying: function() {
-       app.notifications("Currently Playing", "Castle Club Radio", true, true);
+       //app.notifications("Currently Playing", "Castle Club Radio", true, true);
 
         var radioTimer = setInterval(app.radioTime, 1000);
     },
