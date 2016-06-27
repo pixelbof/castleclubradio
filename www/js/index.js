@@ -60,7 +60,9 @@ app.initialize();
 //functions after app has loaded, jquery click specific
 
 $(document).ready(function() {
-    $("#radio").on('playing', app.onPlaying());
+    $("#radio").on('playing', function() {
+         app.onPlaying();
+    });
 
     //get initial page header
     $(".header h1.main-title").html($("a#initLoad").html());
