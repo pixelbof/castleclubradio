@@ -22,7 +22,7 @@ var app = {
         //device ready for cordova API only
     },
     onPlaying: function() {
-       //app.notifications("Currently Playing", "Castle Club Radio", true, true);
+       app.notifications("Currently Playing", "Castle Club Radio", true, true);
 
         var radioTimer = setInterval(app.radioTime, 1000);
     },
@@ -41,10 +41,11 @@ var app = {
         $("#radioPlayer .timer").html(dur);
     },
     notifications: function(message, title, autoCancel, ongoing) {
-        window.plugin.notification.local.add({
+        window.plugins.notification.local.schedule({
             id:         "CastleClubRadio",  // A unique id of the notifiction
-            message:    message,  // The message that is displayed
             title:      title,  // The title of the message
+            text:       message,  // The message that is displayed
+            icon:       "img/logo.png",
             autoCancel: autoCancel, // Setting this flag and the notification is automatically canceled when the user clicks it
             ongoing:    ongoing, // Prevent clearing of notification (Android only)
         });
