@@ -20,7 +20,7 @@ var app = {
     // Update DOM on a Received Event
     receivedEvent: function(id) {
         //device ready for cordova API only
-        document.getElementById("radioPlayer").addEventListener("playing", app.onPlaying, false);
+        document.getElementById("radio").addEventListener("playing", app.onPlaying, false);
     },
     onPlaying: function() {
         app.notifications("Currently Playing", "Castle Club Radio", true, true);
@@ -33,14 +33,14 @@ var app = {
     },
     radioTime: function() {
         var radio = document.getElementById("radio"),
-        audioCurrentTime = $(radio).get(0).currentTime;
+        audioCurrentTime = radio.get(0).currentTime;
 
         var minutes = "0" + Math.floor(audioCurrentTime / 60);
         var seconds = "0" +  Math.floor(audioCurrentTime - minutes * 60);
 
         var dur = minutes.substr(-2) + ":" + seconds.substr(-2);
 
-        $("#radioPlayer .timer").html(dur);
+        document.getElementById("#radioPlayer").getElementsByClassName(".timer")[0].innerHtml(dur);
     },
     notifications: function(message, title, autoCancel, ongoing) {
         window.plugin.notification.local.add({
