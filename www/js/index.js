@@ -9,6 +9,7 @@ var app = {
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
+        document.addEventListener('playing', this.onPlaying, true);
     },
     // deviceready Event Handler
     //
@@ -134,10 +135,6 @@ $(document).ready(function() {
 
     $(radio).trigger('play');
     $(".radio-holder #status").html("Stream Buffering...");
-
-    $(radio).on("playing", function() {
-        app.onPlaying();
-    });
 
     $("#radioPlayer a").on("click", function() {
         if($(this).attr("id") == "play") {
