@@ -115,16 +115,16 @@ $(document).ready(function() {
     radio.preload = "auto";
 
     $(radio).on('playing', function() {
-         alert("currently playing music");
+        alert("currently playing music");
 
-       //app.notifications("Currently Playing", "Castle Club Radio", true, true);
+        app.notifications("Currently Playing", "Castle Club Radio", true, true);
 
         var radioTimer = setInterval(radioTime, 1000);
     });
 
      function radioTime() {
         var radio = document.getElementById("radio"),
-        audioCurrentTime = radio.currentTime;
+        audioCurrentTime = radio[0].currentTime;
 
         $(".radio-holder #status").html("Stream Buffered!").delay(1000).hide();
 
@@ -133,7 +133,6 @@ $(document).ready(function() {
 
         var dur = minutes.substr(-2) + ":" + seconds.substr(-2);
 
-        //document.getElementById("radioPlayer").getElementsByClassName(".timer")[0].innerHtml(dur);
         $("#radioPlayer .timer").html(dur);
     }
 
