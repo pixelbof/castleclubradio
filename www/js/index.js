@@ -22,17 +22,15 @@ var app = {
         //device ready for cordova API only
     },
     onPlaying: function() {
-        //app.notifications("Currently Playing", "Castle Club Radio", true, true);
-
-        setTimeout(function() {
-            $(".radio-holder #status").hide();
-        }, 15000);
+        app.notifications("Currently Playing", "Castle Club Radio", true, true);
 
         var radioTimer = setInterval(app.radioTime, 1000);
     },
     radioTime: function() {
         var radio = document.getElementById("radio"),
         audioCurrentTime = radio.currentTime;
+
+        $(".radio-holder #status").html("Stream Buffered!").delay(1000).hide();
 
         var minutes = "0" + Math.floor(audioCurrentTime / 60);
         var seconds = "0" +  Math.floor(audioCurrentTime - minutes * 60);
@@ -139,8 +137,8 @@ $(document).ready(function() {
     $(radio).trigger('play');
     $(".radio-holder #status").html("Stream Buffering...");
 
-    $(radio).on("play", function() {
-        app.onPlaying()
+    $(radio).on("playing", function() {
+        app.onPlaying;
     });
 
     $("#radioPlayer a").on("click", function() {
