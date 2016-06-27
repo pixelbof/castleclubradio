@@ -48,9 +48,6 @@ var app = {
             autoCancel: autoCancel, // Setting this flag and the notification is automatically canceled when the user clicks it
             ongoing:    ongoing, // Prevent clearing of notification (Android only)
         });
-    },
-    notificationsDismiss: function(noteId) {
-
     }
 };
 
@@ -138,7 +135,7 @@ $(document).ready(function() {
     $(".radio-holder #status").html("Stream Buffering...");
 
     $(radio).on("playing", function() {
-        app.onPlaying;
+        app.onPlaying();
     });
 
     $("#radioPlayer a").on("click", function() {
