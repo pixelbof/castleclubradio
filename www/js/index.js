@@ -20,28 +20,7 @@ var app = {
     // Update DOM on a Received Event
     receivedEvent: function(id) {
         //device ready for cordova API only
-        navigator.notification.alert("device is ready");
-    },
-    onPlaying: function() {
-        navigator.notification.alert("currently playing music");
-       //app.notifications("Currently Playing", "Castle Club Radio", true, true);
-
-        var radioTimer = setInterval(app.radioTime, 1000);
-    },
-    radioTime: function() {
-        navigator.notification.alert("starting timer");
-        var radio = document.getElementById("radio"),
-        audioCurrentTime = radio.currentTime;
-
-        $(".radio-holder #status").html("Stream Buffered!").delay(1000).hide();
-
-        var minutes = "0" + Math.floor(audioCurrentTime / 60);
-        var seconds = "0" +  Math.floor(audioCurrentTime - minutes * 60);
-
-        var dur = minutes.substr(-2) + ":" + seconds.substr(-2);
-
-        //document.getElementById("radioPlayer").getElementsByClassName(".timer")[0].innerHtml(dur);
-        $("#radioPlayer .timer").html(dur);
+        alert("device is ready");
     },
     notifications: function(message, title, autoCancel, ongoing) {
         window.plugins.notification.local.schedule({
@@ -60,10 +39,6 @@ app.initialize();
 //functions after app has loaded, jquery click specific
 
 $(document).ready(function() {
-    $("#radio").on('playing', function() {
-         app.onPlaying();
-    });
-
     //get initial page header
     $(".header h1.main-title").html($("a#initLoad").html());
 
@@ -138,6 +113,29 @@ $(document).ready(function() {
     //radio controller
     var radio = document.getElementById("radio");
     radio.preload = "auto";
+
+    $(radio).on('playing', function() {
+         alert("currently playing music");
+
+       //app.notifications("Currently Playing", "Castle Club Radio", true, true);
+
+        var radioTimer = setInterval(radioTime, 1000);
+    });
+
+     function radioTime() {
+        var radio = document.getElementById("radio"),
+        audioCurrentTime = radio.currentTime;
+
+        $(".radio-holder #status").html("Stream Buffered!").delay(1000).hide();
+
+        var minutes = "0" + Math.floor(audioCurrentTime / 60);
+        var seconds = "0" +  Math.floor(audioCurrentTime - minutes * 60);
+
+        var dur = minutes.substr(-2) + ":" + seconds.substr(-2);
+
+        //document.getElementById("radioPlayer").getElementsByClassName(".timer")[0].innerHtml(dur);
+        $("#radioPlayer .timer").html(dur);
+    }
 
     $(radio).trigger('play');
     $(".radio-holder #status").html("Stream Buffering...");
